@@ -1,0 +1,36 @@
+{
+	"name": "ly-blog-client",
+	"private": true,
+	"type": "module",
+	"version": "1.0.0",
+	"scripts": {
+		"build": "nuxt build",
+		"dev": "nuxt dev --open",
+		"generate": "nuxt generate",
+		"preview": "nuxt preview",
+		"postinstall": "nuxt prepare"
+	},
+	"dependencies": {
+		"@element-plus/icons-vue": "^2.3.1",
+		"@pinia/nuxt": "^0.5.3",
+		"bootstrap-icons": "^1.11.3",
+		"md-editor-v3": "^4.19.1",
+		"nprogress": "^0.2.0",
+		"nuxt": "^3.12.4",
+		"pinia": "^2.2.2",
+		"vue": "latest"
+	},
+	"devDependencies": {
+		"@element-plus/nuxt": "^1.0.9",
+		"@nuxtjs/tailwindcss": "^6.12.1",
+		"@types/nprogress": "^0.2.3",
+		"element-plus": "^2.8.0",
+		"nuxt-lodash": "^2.5.3",
+		"nuxt-particles": "^0.3.0",
+		"sass-embedded": "^1.77.8",
+		"vite-plugin-vue-setup-extend": "^0.4.0"
+	},
+	"overrides": {
+		"vue": "latest"
+	}
+}

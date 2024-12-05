@@ -1,0 +1,26 @@
+{
+	"fullScreen": {
+		"enable": true,
+		"zIndex": 0
+	},
+	"background": {
+		"color": {
+			"value": "transparent"
+		}
+	},
+	"particles": {
+		"color": {
+			"value": "#0ea5e9"
+		},
+		"links": {
+			"color": "#a0cfff",
+			"enable": true
+		},
+		"move": {
+			"enable": true
+		},
+		"number": {
+			"value": 30
+		}
+	}
+}

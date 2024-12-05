@@ -1,0 +1,51 @@
+// 全局样式
+#app,
+html,
+body,
+.el-overlay-dialog {
+  width: 100%;
+  height: 100%;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #409eff;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #eee;
+  }
+}
+
+html {
+  transition: all 0.3s ease-in-out !important;
+}
+
+html.dark {
+  background-color: #0f172a;
+  transition: all 0.3s ease-in-out !important;
+
+  // 调整图片亮度
+  img {
+    filter: brightness(93%);
+    -webkit-filter: brightness(93%);
+  }
+}
+
+:deep(.el-drawer__body) {
+  padding: 0 !important;
+  background-color: transparent !important;
+}
+
+// Vue Transition
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
