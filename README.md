@@ -10,7 +10,7 @@
 
 <p style="font-size: 16px;" align="center">普普通通，平平无奇</p>
 
-<p align="center"><a href="https://gitee.com/lanyun417/lyblog">项目源码 🔗</a></p>
+<p align="center"><a href="https://github.com/LanYun417/LanYunBlog.git">项目源码 🔗</a></p>
 
 <p align="center">💝 QQ交流群：<a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=5mFNbq_kg4VW9sYIrsjubhsovn76fBMq&authKey=pSIfJpNNbUSkchH104ebtP%2BJugTD9y6%2BHkE1RV83ZWTZfhPTOIO0vR93%2BwGfDngi&noverify=0&group_code=316054036"  target="_blank">316054036</a> | 🐧 作者QQ：168847242 | 📩 邮箱：168847242@qq.com</p>
 
@@ -25,7 +25,7 @@
 </p>
 
 ```bash
-$ git clone https://gitee.com/lanyun417/lyblog.git
+$ git clone https://github.com/LanYun417/LanYunBlog.git
 ```
 
 ## 📢 项目介绍
