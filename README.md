@@ -139,8 +139,4 @@ location / {
 3. 提交你的更改
 4. 创建 Pull Request
 
-## 🏅 许可证
-
-本项目遵循[MIT 许可证](https://opensource.org/licenses/MIT)。
-
 ---
