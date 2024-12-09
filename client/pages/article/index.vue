@@ -121,8 +121,8 @@ const siteInfo = computed<SiteInfo>(() => {
 useHead({
 	title: `${siteInfo.value.title} - ${articleInfo.title}`,
 	meta: [
-		{ name: 'keywords', content: articleInfo.categoryName },
-		{ name: 'description', content: articleInfo.content },
+		{ name: 'keywords', content: articleInfo.tags.map((item) => item.name).join(',') },
+		{ name: 'description', content: articleInfo.content.slice(0, 150) + '...' },
 	],
 });
 </script>
