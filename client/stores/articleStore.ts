@@ -27,6 +27,7 @@ export const useArticleStore = defineStore('article', () => {
 			articleList.value = result.list.map((item: ArticleItem) => {
 				return {
 					...item,
+					category: [item.categoryName, item.secCategoryName],
 					publishTime: formatDate(item.publishTime as string),
 				};
 			});
@@ -74,6 +75,7 @@ export const useArticleStore = defineStore('article', () => {
 			articleList.value = result.list.map((item: ArticleItem) => {
 				return {
 					...item,
+					category: [item.categoryName, item.secCategoryName],
 					publishTime: formatDate(item.publishTime as string),
 				};
 			});

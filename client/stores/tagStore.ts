@@ -48,8 +48,11 @@ export const useTagStore = defineStore('tag', () => {
 
 		if (result.code === 200) {
 			articleList.value = result.list.map((item: ArticleItem) => {
+				console.log('item: ', item);
+
 				return {
 					...item,
+					category: [item.categoryName, item.secCategoryName],
 					publishTime: formatDate(item.publishTime as string),
 				};
 			});
