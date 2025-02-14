@@ -7,7 +7,6 @@ export default defineNuxtConfig({
 	runtimeConfig: {
 		public: {
 			baseUrl: 'http://localhost:7077',
-			// baseUrl: 'https://your-domain.com',
 		},
 	},
 	modules: [
