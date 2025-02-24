@@ -1,0 +1,7 @@
+{
+	"name": "蓝云博客接口文档",
+	"version": "1.0.0",
+	"description": "蓝云博客前台 + 后台NodeJS接口文档，基于apidoc生成",
+	"title": "NodeJS接口文档",
+	"sampleUrl": "http://localhost:7077"
+}
