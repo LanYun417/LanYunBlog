@@ -2,9 +2,9 @@
 	<div class="ly-empty flex items-center justify-center pb-10 flex-col">
 		<div class="py-3"></div>
 		<img
+			alt="empty.git"
 			class="rounded-full w-[100px] dark:brightness-[80%] dark:hover:brightness-100"
-			:src="'/images/empty.gif'"
-			alt="empty.git" />
+			src="@/assets/empty.gif" />
 		<div class="py-3"></div>
 		<el-text size="large" type="info">{{ text }}</el-text>
 	</div>
