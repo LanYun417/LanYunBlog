@@ -11,6 +11,9 @@
       >
         <el-table-column label="操作" fixed="right">
           <template #default="scope">
+            <el-button link type="success" size="small" @click="copyToClipboard(scope.row.url)">
+              复制
+            </el-button>
             <el-button link type="success" size="small" @click="handleDownload(scope.row)">
               下载
             </el-button>
@@ -50,6 +53,7 @@
 
 <script name="AllFile" lang="ts" setup>
 import { formatDate } from '@/utils/u.dayjs';
+import { copyToClipboard } from '@/utils/u.copy';
 import { convertMemory } from '@/utils/u.convert';
 import type { FileInfo, FileList } from '@/types';
 import type { TableFields } from '@/components/RichTable/types';

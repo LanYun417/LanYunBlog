@@ -9,6 +9,11 @@
         @on-search="t_handleSearch"
         @on-selection-change="handleSelectionChange"
       >
+        <template #tools-l>
+          <el-button type="danger" size="small" icon="Delete" @click="confirmDialogVisible = true">
+            清空日志记录
+          </el-button>
+        </template>
         <el-table-column label="操作" fixed="right">
           <template #default="scope">
             <el-button link type="primary" size="small" @click="handleView(scope.row)">
@@ -56,6 +61,26 @@
           </el-form-item>
         </el-form>
       </ElsDialog>
+
+      <!-- 确认清空日志文本输入 -->
+      <ElsDialog v-model="confirmDialogVisible" title="警告">
+        <el-text type="danger">请输入 “ 确认清空访问日志记录 ” 以确认清空日志记录</el-text>
+        <br />
+        <br />
+        <el-text type="danger">
+          注意：清空日志记录后无法恢复，请谨慎操作！同时站点的访问日志将会被清空，请确保已备份数据！
+        </el-text>
+        <br />
+        <br />
+        <el-input
+          v-model="confirmText"
+          placeholder="请输入 “ 确认清空访问日志记录 ” 以确认清空日志记录"
+        />
+        <template #footer>
+          <el-button @click="confirmDialogVisible = false">取消</el-button>
+          <el-button type="primary" @click="clearAllAccessRecord">确认</el-button>
+        </template>
+      </ElsDialog>
     </div>
 
     <!-- 分页 -->
@@ -77,11 +102,15 @@
 </template>
 
 <script name="AccessRecord" lang="ts" setup>
+import {
+  deleteAccessRecordApi,
+  fetchAccessRecordList,
+  clearAllAccessRecordApi
+} from '@/api/api.access';
 import { throttle } from 'lodash';
 import { formatDate } from '@/utils/u.dayjs';
 import type { AccessInfo, AccessList } from '@/types';
 import type { TableFields } from '@/components/RichTable/types';
-import { deleteAccessRecordApi, fetchAccessRecordList } from '@/api/api.access';
 
 // 分页
 const total = ref<number>(0); // 总数
@@ -185,6 +214,30 @@ const handleDelete = (row: AccessInfo | AccessList): void => {
       return;
     }
 
+    if (result.data.code === 200) {
+      ElMessage.success(result.data.message);
+      await getTableData();
+    }
+  });
+};
+
+// 清空日志记录
+const confirmText = ref<string>('');
+const confirmDialogVisible = ref<boolean>(false);
+watch(confirmDialogVisible, () => {
+  confirmText.value = ''; // 重置输入框内容
+});
+const clearAllAccessRecord = (): void => {
+  if (confirmText.value !== '确认清空访问日志记录') return;
+  ElMessageBox.confirm('清空日志记录后无法恢复，是否确认清空？', '警告', {
+    confirmButtonText: '确定',
+    cancelButtonText: '取消',
+    type: 'warning'
+  }).then(async () => {
+    const result = await clearAllAccessRecordApi(confirmText.value);
+    if (result.data.code === 200) {
+      confirmDialogVisible.value = false;
+    }
     if (result.data.code === 200) {
       ElMessage.success(result.data.message);
       await getTableData();

@@ -31,6 +31,8 @@
 							</li>
 						</ul>
 					</div>
+					<!-- 无数据 -->
+					<ly-empty v-show="emptyVisible" />
 				</div>
 			</ly-card>
 		</section>
@@ -42,6 +44,11 @@ import type { CategoryList, SiteInfo } from '~/types';
 
 const categoryStore = useCategoryStore();
 const categoryList = computed<CategoryList>(() => categoryStore.categoryList);
+
+// 无数据显示状态
+const emptyVisible = computed(() => {
+	return categoryList.value.length === 0;
+});
 
 const siteInfo = computed<SiteInfo>(() => {
 	return useSiteStore().siteInfo;

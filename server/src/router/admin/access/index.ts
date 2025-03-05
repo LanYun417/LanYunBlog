@@ -81,4 +81,30 @@ router.get('/list', listHandle);
 import { deleteHandle } from './handler/delete.handle';
 router.delete('/delete', deleteHandle);
 
+/**
+ * @api {delete} /admin/access/clearAll 清空日志记录
+ * @apiName 清空日志记录
+ * @apiGroup 访问记录
+ * @apiDescription 清空日志记录
+ *
+ * @apiPermission admin
+ *
+ * @apiSampleRequest /admin/access/clearAll
+ *
+ * @apiHeader {String} Authorization 用户授权 Token
+ *
+ * @apiQuery {String} text “ 确认清空访问日志记录 ” 文本
+ *
+ * @apiSuccess {Number} code 响应状态码
+ * @apiSuccess {String} message 响应消息
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "code": 200,
+ *       "message": "删除成功"
+ *     }
+ */
+import { clearAllHandle } from './handler/clearAll.handle';
+router.delete('/clearAll', clearAllHandle);
+
 export default router;

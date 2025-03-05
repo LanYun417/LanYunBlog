@@ -29,6 +29,8 @@
 						</el-col>
 					</el-row>
 				</div>
+				<!-- 无数据 -->
+				<ly-empty v-show="emptyVisible" />
 			</ly-card>
 			<div class="w-full mt-2">
 				<ly-card>
@@ -98,6 +100,11 @@ import type { FriendlyLinkCreate, FriendlyLinkList, SiteInfo } from '~/types';
 
 const captchaStore = useCaptchaStore();
 const friendlyLinkStore = useFriendlyLinkStore();
+
+// 无数据显示状态
+const emptyVisible = computed(() => {
+	return friendlyLinkList.value.length === 0;
+});
 
 // 友链列表
 const friendlyLinkList = computed<FriendlyLinkList>(

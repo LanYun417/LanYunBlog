@@ -64,6 +64,9 @@
 					</el-col>
 				</el-row>
 
+				<!-- 无数据 -->
+				<ly-empty v-show="emptyVisible" />
+
 				<!-- 分页器 -->
 				<div class="pagination w-full flex justify-center mt-3">
 					<el-scrollbar>
@@ -85,6 +88,11 @@ import type { ArticleList, SelectTree, SiteInfo } from '~/types';
 
 // Article Store
 const articleStore = useArticleStore();
+
+// 无数据显示状态
+const emptyVisible = computed(() => {
+	return articleList.value.length === 0;
+});
 
 // 搜索搜索
 const keyword = ref<string>('');

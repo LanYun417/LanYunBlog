@@ -33,3 +33,11 @@ export function deleteAccessRecordApi(id: number | number[]) {
 
   return request.delete(`/admin/access/delete?ids=${ids}`);
 }
+
+/**
+ * 清空日志记录
+ * @param { string } text “ 确认清空访问日志记录 ” 文本
+ */
+export function clearAllAccessRecordApi(text: string) {
+  return request.delete(`/admin/access/clearAll?text=${text}`);
+}

@@ -22,6 +22,8 @@
 						</li>
 					</ul>
 				</div>
+				<!-- 无数据 -->
+				<ly-empty v-show="emptyVisible" />
 			</ly-card>
 		</section>
 	</div>
@@ -33,6 +35,11 @@ import type { SiteInfo, TagItem, TagList } from '~/types';
 const tagStore = useTagStore();
 await tagStore.getArticleTagList();
 const tagList = computed<TagList>(() => tagStore.tagList);
+
+// 无数据显示状态
+const emptyVisible = computed(() => {
+	return tagList.value.length === 0;
+});
 
 // 站点关键词
 const keyword = computed(() => {

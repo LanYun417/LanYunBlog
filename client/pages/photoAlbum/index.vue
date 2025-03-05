@@ -15,6 +15,8 @@
 						<ly-photo-item :url="p.url" :description="p.description" v-scale />
 					</div>
 				</div>
+				<!-- 无数据 -->
+				<ly-empty v-show="emptyVisible" />
 			</ly-card>
 		</section>
 		<!-- 分页器 -->
@@ -38,6 +40,11 @@ const photoStore = usePhotoStore();
 
 // 照片列表
 const photoList = computed<PhotoList>(() => photoStore.photoList);
+
+// 无数据显示状态
+const emptyVisible = computed(() => {
+	return photoList.value.length === 0;
+});
 
 // 分页
 const pageSize = ref<number>(20); // 每页数量
