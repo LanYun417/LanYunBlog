@@ -3,7 +3,7 @@
 		<div class="py-3"></div>
 		<img
 			alt="empty.git"
-			class="rounded-full w-[100px] dark:brightness-[80%] dark:hover:brightness-100"
+			class="rounded-full w-52 dark:brightness-[80%] dark:hover:brightness-100"
 			src="~/assets/empty.gif" />
 		<div class="py-3"></div>
 		<el-text size="large" type="info">{{ text }}</el-text>
